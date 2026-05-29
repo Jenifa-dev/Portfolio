@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -29,16 +29,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Remix App
+      - name: Build TanStack Start app
         run: npm run build
 
-      - name: Copy index.html to 404.html (for SPA routing)
-        run: cp ./dist/index.html ./dist/404.html
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp ./dist/client/index.html ./dist/client/404.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'          # ← Changed from dist/client to dist
+          path: ./dist/client
 
       - name: Deploy to GitHub Pages
         id: deployment

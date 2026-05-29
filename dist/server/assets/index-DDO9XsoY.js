@@ -154,7 +154,7 @@ function LinkedinIcon(props) {
     }
   );
 }
-const RESUME_URL = "https://jenifa-dev.github.io/Projects/Jenifa%20J-Full%20Stack%20Developer%20(1).pdf";
+const RESUME_URL = "https://jenifa-dev.github.io/Projects/Jenifa-Full-Stack-Developer.pdf";
 const EASE = [0.22, 1, 0.36, 1];
 const container = {
   hidden: {},

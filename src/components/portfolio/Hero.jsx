@@ -139,7 +139,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative hidden lg:block"
+          className="relative mx-auto mt-10 w-full max-w-sm lg:mt-0 lg:max-w-none"
         >
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-accent/40 via-primary/20 to-transparent blur-2xl" />
           <div className="relative rounded-[2rem] overflow-hidden border border-border glass shadow-glow aspect-[4/5]">

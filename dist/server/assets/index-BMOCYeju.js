@@ -167,11 +167,7 @@ const item = {
 function Hero() {
   const emailAddress = "jenifaj2003@gmail.com";
   const linkedinHref = "https://www.linkedin.com/in/jenifa-j-b8bb5136a";
-  const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent("Portfolio Inquiry")}`;
-  const openGmail = (event) => {
-    event.preventDefault();
-    window.location.assign(gmailHref);
-  };
+  const emailHref = `mailto:${emailAddress}`;
   return /* @__PURE__ */ jsxs(
     "section",
     {
@@ -256,13 +252,12 @@ function Hero() {
                   /* @__PURE__ */ jsx(TooltipProvider, { delayDuration: 100, children: /* @__PURE__ */ jsx("div", { className: "flex items-center gap-1 sm:ml-2", children: [
                     { Icon: LinkedinIcon, href: linkedinHref, label: "LinkedIn" },
                     { Icon: FileDown, href: RESUME_URL, label: "Resume" },
-                    { Icon: Mail, href: gmailHref, label: "Gmail", onClick: openGmail }
-                  ].map(({ Icon, href, label, onClick }) => /* @__PURE__ */ jsxs(Tooltip, { children: [
+                    { Icon: Mail, href: emailHref, label: "Email" }
+                  ].map(({ Icon, href, label }) => /* @__PURE__ */ jsxs(Tooltip, { children: [
                     /* @__PURE__ */ jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsx(
                       "a",
                       {
                         href,
-                        onClick,
                         "aria-label": label,
                         target: label === "LinkedIn" || label === "Resume" ? "_blank" : void 0,
                         rel: label === "LinkedIn" || label === "Resume" ? "noopener noreferrer" : void 0,
@@ -634,11 +629,7 @@ function Projects() {
 function Contact() {
   const emailAddress = "jenifaj2003@gmail.com";
   const linkedinHref = "https://www.linkedin.com/in/jenifa-j-b8bb5136a";
-  const emailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent("Portfolio Inquiry")}`;
-  const openGmail = (event) => {
-    event.preventDefault();
-    window.location.assign(emailHref);
-  };
+  const emailHref = `mailto:${emailAddress}`;
   return /* @__PURE__ */ jsxs(Section, { id: "contact", children: [
     /* @__PURE__ */ jsxs(
       motion.div,
@@ -664,7 +655,6 @@ function Contact() {
               "a",
               {
                 href: emailHref,
-                onClick: openGmail,
                 className: "group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground hover:shadow-glow transition-all",
                 children: [
                   "Email me",
@@ -680,7 +670,6 @@ function Contact() {
               "a",
               {
                 href,
-                onClick: href === emailHref ? openGmail : void 0,
                 "aria-label": label,
                 target: label === "LinkedIn" || label === "Resume" ? "_blank" : void 0,
                 rel: label === "LinkedIn" || label === "Resume" ? "noopener noreferrer" : void 0,

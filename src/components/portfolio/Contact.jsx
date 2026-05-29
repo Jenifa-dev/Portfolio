@@ -7,12 +7,7 @@ import { RESUME_URL } from "./portfolioLinks";
 export function Contact() {
   const emailAddress = "jenifaj2003@gmail.com";
   const linkedinHref = "https://www.linkedin.com/in/jenifa-j-b8bb5136a";
-  const emailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent("Portfolio Inquiry")}`;
-
-  const openGmail = (event) => {
-    event.preventDefault();
-    window.location.assign(emailHref);
-  };
+  const emailHref = `mailto:${emailAddress}`;
 
   return (
     <Section id="contact">
@@ -41,7 +36,6 @@ export function Contact() {
           <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3">
             <a
               href={emailHref}
-              onClick={openGmail}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground hover:shadow-glow transition-all"
             >
               Email me
@@ -58,7 +52,6 @@ export function Contact() {
               <a
                 key={label}
                 href={href}
-                onClick={href === emailHref ? openGmail : undefined}
                 aria-label={label}
                 target={label === "LinkedIn" || label === "Resume" ? "_blank" : undefined}
                 rel={label === "LinkedIn" || label === "Resume" ? "noopener noreferrer" : undefined}

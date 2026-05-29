@@ -53,7 +53,7 @@ function RootShell({ children }) {
 function RootComponent() {
   return /* @__PURE__ */ jsx(Outlet, {});
 }
-const $$splitComponentImporter = () => import("./index-CmdYUhke.js");
+const $$splitComponentImporter = () => import("./index-BMOCYeju.js");
 const Route = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });

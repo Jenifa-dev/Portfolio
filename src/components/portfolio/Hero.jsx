@@ -19,12 +19,7 @@ const item = {
 export function Hero() {
   const emailAddress = "jenifaj2003@gmail.com";
   const linkedinHref = "https://www.linkedin.com/in/jenifa-j-b8bb5136a";
-  const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent("Portfolio Inquiry")}`;
-
-  const openGmail = (event) => {
-    event.preventDefault();
-    window.location.assign(gmailHref);
-  };
+  const emailHref = `mailto:${emailAddress}`;
 
   return (
     <section
@@ -85,13 +80,12 @@ export function Hero() {
                 {[
                   { Icon: LinkedinIcon, href: linkedinHref, label: "LinkedIn" },
                   { Icon: FileDown, href: RESUME_URL, label: "Resume" },
-                  { Icon: Mail, href: gmailHref, label: "Gmail", onClick: openGmail },
-                ].map(({ Icon, href, label, onClick }) => (
+                  { Icon: Mail, href: emailHref, label: "Email" },
+                ].map(({ Icon, href, label }) => (
                   <Tooltip key={label}>
                     <TooltipTrigger asChild>
                       <a
                         href={href}
-                        onClick={onClick}
                         aria-label={label}
                         target={label === "LinkedIn" || label === "Resume" ? "_blank" : undefined}
                         rel={

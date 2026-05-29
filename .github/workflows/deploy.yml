@@ -37,13 +37,16 @@ jobs:
       - name: Build Remix App
         run: npm run build
 
-      - name: Copy index.html to 404.html
-        run: cp ./dist/client/index.html ./dist/client/404.html
+      - name: Copy index.html to 404.html (for SPA routing)
+        run: cp ./dist/index.html ./dist/404.html
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/client'
+          path: './dist'          # ← Changed from dist/client to dist
 
       - name: Deploy to GitHub Pages
         id: deployment
